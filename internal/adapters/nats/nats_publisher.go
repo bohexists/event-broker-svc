@@ -21,7 +21,7 @@ func NewNatsPublisher(natsURL string) (*NatsPublisher, error) {
 }
 
 // Publish publishes a message to a NATS subject.
-func (n *NatsPublisher) Publish(subject string, data []byte) error {
+func (n NatsPublisher) Publish(subject string, data []byte) error {
 	err := n.Connection.Publish(subject, data)
 	if err != nil {
 		log.Printf("Error publishing message to NATS: %v", err)
